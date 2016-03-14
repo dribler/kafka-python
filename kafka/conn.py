@@ -138,6 +138,10 @@ class BrokerConnection(object):
         """Return True iff socket is connected."""
         return self.state is ConnectionStates.CONNECTED
 
+    def connecting(self):
+        """Return True iff socket is in intermediate connecting state."""
+        return self.state is ConnectionStates.CONNECTING
+
     def close(self, error=None):
         """Close socket and fail all in-flight-requests.
 
